@@ -1,4 +1,20 @@
 <?php
+    ob_start();
+    session_start();
+    require_once '../dbconnect.php';
+
+    //if session is not set this will redirect to login page:
+    if(!isset($_SESSION['admin']) && !isset($_SESSION['user']) ) {
+        header("Location: ../index.php");
+        exit;
+    }
+    if(isset($_SESSION['user'])){
+        header("Location: ../home.php");
+        exit;
+    }
+?>
+
+<?php
     require_once 'actions/db_connect.php';
 ?>
 
@@ -78,7 +94,7 @@
         <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" href="../admin.php">Sign out</a>
             </li>
         </ul>
     </nav>

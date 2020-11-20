@@ -1,4 +1,20 @@
 <?php
+    ob_start();
+    session_start();
+    require_once '../dbconnect.php';
+
+    //if session is not set this will redirect to login page:
+    if(!isset($_SESSION['admin']) && !isset($_SESSION['user']) ) {
+        header("Location: ../index.php");
+        exit;
+    }
+    if(isset($_SESSION['user'])){
+        header("Location: ../home.php");
+        exit;
+    }
+?>
+
+<?php
     require_once 'actions/db_connect.php';
 
     if($_GET['id']){
@@ -88,7 +104,7 @@
         <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a class="nav-link" href="../admin.php">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -117,7 +133,7 @@
             </nav>
 
             <!-- MAIN CONTENT ------------------------------------------------------------------------------------------------------------------------------------------- -->
-            <h3 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Create a new Entry</h3>
+            <h3 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Edit Entry</h3>
             <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <form action="actions/a_update.php" method="post">
                     <table>

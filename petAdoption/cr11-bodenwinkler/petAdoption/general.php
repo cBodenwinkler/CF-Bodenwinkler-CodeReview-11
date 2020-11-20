@@ -1,3 +1,18 @@
+<?php
+    ob_start();
+    session_start();
+    require_once '../dbconnect.php';
+
+    //if session is not set this will redirect to login page:
+    if(!isset($_SESSION['user'])) {
+        header("Location: ../index.php");
+        exit;
+    }
+    //select logged-in users details:
+    $res = mysqli_query($conn, "SELECT * FROM users WHERE userId=".$_SESSION['user']);
+    $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
+?>
+
 <?php require_once 'actions/db_connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,19 +26,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Small and Large Animals</title>
+
+    <style>
+    h5 {
+        display: inline;
+    }
+    </style>
 </head>
 
 <body>
     <header>
         <ul class="nav justify-content-center bg-dark">
             <li class="nav-item">
-                <a class="nav-link active" href="home.php" style="color:white">All Animals</a>
+                <a class="nav-link active" href="home.php" style="color:white;font-size:1.5rem">All Animals</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="general.php" style="color:white">Animal Sizes</a>
+                <a class="nav-link" href="general.php" style="color:white;font-size:1.5rem">Animal Sizes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="senior.php" style="color:white">Senior Animals</a>
+                <a class="nav-link" href="senior.php" style="color:white;font-size:1.5rem">Senior Animals</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link" style="color:red" href="../home.php"><button type="submit" class="btn btn-block btn-danger">Sign out</button></a>
             </li>
         </ul>
     </header>
