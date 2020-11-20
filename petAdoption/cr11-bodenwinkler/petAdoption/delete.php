@@ -101,20 +101,14 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="adminPanel.php">
-                                <span data-feather="home"></span>
-                                Dashboard <span class="sr-only"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="create.php">
-                                <span data-feather="bar-chart-2"></span>
-                                Create an Animal Entry
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="adminPanel.php">
                                 <span data-feather="layers"></span>
                                 Animals - Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="create.php">
+                                <span data-feather="bar-chart-2"></span>
+                                Create an Animal Entry
                             </a>
                         </li>
                     </ul>
@@ -122,10 +116,18 @@
                 </div>
             </nav>
 
-<!-- MAIN CONTENT ------------------------------------------------------------------------------------------------------------------------------------------- -->
-            <h3 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Create a new Entry</h3>
-            <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                
+            <!-- MAIN CONTENT ----------------------- ----------------------------------------------- ------------------------------ --------------------------------------- -->
+            <h3 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Delete Entry</h3>
+            <div
+                class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+                <form action="actions/a_delete.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $data['id'] ?>" />
+
+                    <button type="submit" class="btn btn-primary">Yes, delete it!</button>
+
+                    <a href="adminPanel.php"><button type="button" class="btn btn-secondary">No, go back!</button></a>
+                </form>
 
 
 

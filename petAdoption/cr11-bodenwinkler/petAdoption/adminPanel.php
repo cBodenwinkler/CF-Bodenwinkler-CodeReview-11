@@ -86,20 +86,14 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="adminPanel.php">
-                                <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
+                                <span data-feather="layers"></span>
+                                Animals - Overview
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="create.php">
                                 <span data-feather="bar-chart-2"></span>
                                 Create an Animal Entry
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="adminPanel.php">
-                                <span data-feather="layers"></span>
-                                Animals - Overview
                             </a>
                         </li>
                     </ul>
