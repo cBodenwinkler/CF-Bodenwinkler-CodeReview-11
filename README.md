@@ -5,8 +5,6 @@
 ```
 Contains the .php files.
 This folder needs to be implemented in C:\xampp\htdocs\
-
-Additionally there is a 'img' folder for the Logo used in the Website.
 ```
 
 #### Folder - cr11_bodenwinkler_petadoption_SQL:
