@@ -46,6 +46,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="senior.php" style="color:white;font-size:1.5rem">Senior</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="search.php" style="color:white;font-size:1.5rem">Search</a>
+            </li>
             <li class="nav-item ml-auto">
                 <a class="nav-link" style="color:red" href="../home.php"><button type="submit" class="btn btn-block btn-danger">Sign out</button></a>
             </li>

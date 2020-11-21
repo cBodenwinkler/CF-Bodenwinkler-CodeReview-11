@@ -4,7 +4,7 @@
     session_start();
     require_once '../../dbconnect.php';
 
-    if(!isset($_SESSION['superAdmin']) && !isset($_SESSION['admin']) && !isset($_SESSION['superAdmin']) ) {
+    if(!isset($_SESSION['superAdmin']) && !isset($_SESSION['admin']) && !isset($_SESSION['user']) ) {
         header("Location: ../../index.php");
         exit;
     }

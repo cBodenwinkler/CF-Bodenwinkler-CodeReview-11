@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 11:16 AM
+-- Generation Time: Nov 21, 2020 at 01:19 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -46,7 +46,7 @@ CREATE TABLE `animals` (
 --
 
 INSERT INTO `animals` (`id`, `animalName`, `animalImage`, `animalDescription`, `animalLocation`, `animalHobbies`, `animalAge`, `active`, `animalSize`) VALUES
-(1, 'Horst', 'https://images.unsplash.com/photo-1571391733814-15ac29ac3544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80', 'Horst die Schlange', 'Vienna - Neubau', 'Eating Rats and Mice', 5, 0, 'small'),
+(1, 'Horst', 'https://images.unsplash.com/photo-1571391733814-15ac29ac3544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80', 'Horst die Schlange', 'Vienna - Neubau', 'Eating Rats and Mice', 7, 0, 'small'),
 (6, 'Fred', 'https://www.zooplus.de/magazin/wp-content/uploads/2019/01/labradoodle-welpe-1024x683.jpeg', 'Funny little Labradoodle', 'Vienna - Josefstadt', 'Bellyrubs and hunting Sticks', 3, 0, 'large'),
 (7, 'Bertha', 'https://www.aljazeera.com/wp-content/uploads/2020/02/0024d1579c2c4b4395e53a39f70d49f7_18.jpeg?resize=770%2C513', 'Funny big Elephant for your home needs', 'Vienna - Meidling', 'Eating gras and scaring people', 25, 0, 'large'),
 (8, 'Gunni', 'https://www.zooplus.de/magazin/wp-content/uploads/2020/10/kitten-sitzt-boden-768x512.jpeg', 'Little Kitten of unknown breed', 'Vienna', 'brawling with other kittens', 1, 0, 'small'),
@@ -78,9 +78,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `userName`, `userEmail`, `userPass`, `status`) VALUES
-(3, 'Test Testlinger', 'test@admin.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'admin'),
 (5, 'Christian BWIN', 'test@superadmin.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'superAdmin'),
-(9, 'Test User', 'test@user.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'user');
+(9, 'Test User', 'test@user.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'user'),
+(12, 'Test Admin', 'test@admin.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'admin'),
+(13, 'Test Test Admin', 'test@admin2.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'admin'),
+(14, 'Test ChangeMe USER', 'test@user2.com', 'df5d32b3291d74318eaa98c9230bcff1aa35c275de0da3b804326098fbb9fe91', 'user'),
+(15, 'Test DeleteME User', 'test@deleteMe.com', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'user');
 
 --
 -- Indexes for dumped tables
@@ -107,13 +110,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

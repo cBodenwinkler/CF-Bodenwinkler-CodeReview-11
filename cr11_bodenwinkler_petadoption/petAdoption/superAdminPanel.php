@@ -3,7 +3,7 @@
     session_start();
     require_once '../dbconnect.php';
 
-    if(!isset($_SESSION['superAdmin']) && !isset($_SESSION['admin']) && !isset($_SESSION['superAdmin']) ) {
+    if(!isset($_SESSION['superAdmin']) && !isset($_SESSION['admin']) && !isset($_SESSION['user']) ) {
         header("Location: ../index.php");
         exit;
     }
@@ -24,16 +24,6 @@
 
 <?php
     require_once 'actions/db_connect.php';
-
-    if($_GET['id']){
-        $id = $_GET['id'];
-
-    $sql = "SELECT * FROM users WHERE userId = {$id}";
-    $result = $connect->query($sql);
-
-    $data = $result->fetch_assoc();
-
-    $connect->close();
 ?>
 
 <!doctype html>
@@ -82,19 +72,14 @@
             font-size: 3.5rem;
         }
     }
-
     img {
-        width: 100px;
+        width:100px;
     }
-
-    table,
-    td,
-    th {
-        /* text-align: center; */
+    table, td, th {
+        text-align: center;
     }
-
     td {
-        height: 50px;
+        height:80px;
     }
     </style>
     <!-- Custom styles for this template -->
@@ -102,9 +87,9 @@
 </head>
 
 <body>
-    <!-- HEADER NAVBAR----------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- HEADER NAVBAR----------------------------------------------------------------------------------------------------------------------------------------- -->
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="superAdminPanel.php">SuperAdminPanel</a>
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">SuperAdminPanel</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -117,45 +102,63 @@
         </ul>
     </nav>
 
-    <!-- SIDEBAR-------------------------------------------------------------------------------------------------------------------------------------------------- -->
+ <!-- SIDEBAR-------------------------------------------------------------------------------------------------------------------------------------------------- -->
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="superAdminPanel.php">
+                            <a class="nav-link active" href="superAdminPanel.php">
                                 <span data-feather="layers"></span>
                                 Change User State
                             </a>
                         </li>
+                    </ul>
 
                 </div>
             </nav>
 
-            <!-- MAIN CONTENT ------------------------------------------------------------------------------------------------------------------------------------------- -->
-            <h3 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Edit Entry</h3>
-            <p class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">Set Status to <b>user</b> or <b>admin</b> </p>
-            <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <form action="actions/a_change.php" method="post">
-                    <table>
+<!-- MAIN CONTENT ------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <h2 class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">User - DB</h2>
+            <div
+                class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <table class="table table-striped table-sm">
+                    <thead>
                         <tr>
-                            <td>
-                                <h5>User Status:</h5>
-                            </td>
-                            <td><input value="<?php echo $data['status'] ?>" size="50" type="text" name="status" placeholder="user, admin, superAdmin"></td>
+                            <th>userId</th>
+                            <th>userName</th>
+                            <th>userEmail</th>
+                            <th>status</th>
                         </tr>
-                    </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $sql = "SELECT * FROM users WHERE status='admin' OR status='user'";
+                            $result = $connect->query($sql);
 
-                    <input type="hidden" name="userId" value="<?php echo $data['userId'] ?>" />
-                    <h5 style="margin-top:50px">Change Entry:</h5>
-                    <button type="submit" class="btn btn-block btn-primary mt-1">Submit Change</button>
-                    <a href="superAdminPanel.php"> <button type="button"
-                            class="btn btn-block btn-secondary mt-1">BACK</button> </a>
-                </form>
+                            if($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo    "<tr>
+                                                <td>" .$row['userId']. "</td>
+                                                <td>" .$row['userName']. "</td>
+                                                <td>" .$row['userEmail']. "</td>
+                                                <td>" .$row['status']. "</td>
+                                                <td>
+                                                    <a href='change.php?id=" .$row['userId']."'><button class='btn btn-secondary' type='button'>Edit</button></a>
+                                                    <a href='userDelete.php?id=" .$row['userId']."'><button class='btn btn-danger' type='button'>Delete</button></a>
+                                                </td>
+                                            </tr>";
+                                } 
+                            } else {
+                                echo "<tr><td>NO DATA AVAILABLE</td></tr>";
+                            }
 
 
-
+                        ?>
+                        
+                    </tbody>
+                </table>
             </div>
             </main>
         </div>
@@ -175,7 +178,3 @@
 </body>
 
 </html>
-
-<?php
-    }
-?>

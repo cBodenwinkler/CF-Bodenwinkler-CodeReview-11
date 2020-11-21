@@ -1,4 +1,3 @@
-<!-- PetAdoption -->
 <?php
     ob_start();
     session_start();
@@ -15,7 +14,6 @@
 ?>
 
 <?php require_once 'actions/db_connect.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>All Animals</title>
+    <title>General</title>
 
     <style>
     h5 {
@@ -48,16 +46,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="senior.php" style="color:white;font-size:1.5rem">Senior</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="search.php" style="color:white;font-size:1.5rem">Search</a>
+            </li>
             <li class="nav-item ml-auto">
                 <a class="nav-link" style="color:red" href="../home.php"><button type="submit" class="btn btn-block btn-danger">Sign out</button></a>
             </li>
         </ul>
     </header>
 
+
     <div class="container my-5">
         <div class="row">
                 <?php 
-                    $sql = "SELECT * FROM animals WHERE active=0";
+                    $sql = "SELECT * FROM animals WHERE animalSize = 'small' OR animalSize = 'large'";
 
                     $result = $connect->query($sql);
 
@@ -85,7 +87,6 @@
 
         </div>
     </div>
-
 
 
 
