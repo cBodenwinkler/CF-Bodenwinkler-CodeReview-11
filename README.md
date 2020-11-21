@@ -1,4 +1,5 @@
 ## CR11-Bodenwinkler-PetAdoption
+##Test Users can be seen on index.php
 
 #### Folder - cr11_bodenwinkler_petadoption:
 ```
@@ -20,6 +21,4 @@ including the table 'users' with testUsers and table 'animals' with data of
 Best to Start with index.php or create.php
 Other sides could throw errors as necessary id values will not be registered
 When starting with index.php or register.php everything will work
-
-##Test Users can be seen on index.php
 ```
