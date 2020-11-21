@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 01:19 PM
+-- Generation Time: Nov 21, 2020 at 01:38 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -57,7 +57,7 @@ INSERT INTO `animals` (`id`, `animalName`, `animalImage`, `animalDescription`, `
 (14, 'Rex', 'https://www.treehugger.com/thmb/-D1tFsK9DbnPB_4pnwwj9W_1Xjo=/735x0/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__10__TRexModelAgainstYellowEggshellBackground-df740d7273ea421bad87046e1ba6e071.jpg', 'Large, scary but very cool', 'Innsbruck', 'Eating everything that moves', 23, 0, 'large'),
 (15, 'Benny', 'https://tractive.com/blog/wp-content/uploads/2020/02/how-to-deal-with-panting-shaking-seizures-in-old-dogs.jpg', 'Nice old dog that loves people', 'Klosterneuburg', 'Sleeping and walking in the woods', 17, 0, 'senior'),
 (16, 'Trudy', 'https://www.dogslife.com.au/wp-content/uploads/2018/09/1-15-624x416.jpg', 'Lovely older Dog', 'Salzburg', 'Hide and Seek', 16, 0, 'senior'),
-(17, 'Willy', 'https://lh3.googleusercontent.com/proxy/ngCGTL50v-ulEKWr6VvsLkkD8P0dViOFumKtFKoALjP4PBM3fVTalMarTaiKKJUillok4UnhWg0PZRbbMNF-owqfRk6H5Gm_Lx1_g3gyMs41H2zyAheYjh2aqCMkevYLHb-RHnmQWVh6Zde93LLbiDPUOUS93HU9nSBQOxSmHJnNQQ', 'For everybody with a slightly larger pool at home', 'Vienna - Meidling', 'Eating all day long', 25, 0, 'large');
+(17, 'Willy', 'https://media.wired.com/photos/5977988d58f558732a26fe3a/4:3/w_1883,h_1412,c_limit/bluewhale.jpg', 'For everybody with a slightly larger pool at home', 'Vienna - Meidling', 'Eating all day long', 25, 0, 'large');
 
 -- --------------------------------------------------------
 
