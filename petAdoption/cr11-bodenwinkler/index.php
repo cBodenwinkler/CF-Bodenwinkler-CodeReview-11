@@ -44,7 +44,10 @@
             $count = mysqli_num_rows($res); // if username/pass is correct it returns must be 1 row
 
             if($count == 1 && $row['userPass']==$password ) {
-                if($row['status'] == 'admin') {
+                if($row['status'] == 'superAdmin') {
+                    $_SESSION["superAdmin"] = $row['userId'];
+                    header("Location: superAdmin.php");
+                } elseif($row['status'] == 'admin') {
                     $_SESSION["admin"] = $row['userId'];
                     header("Location: admin.php");
                 } else {
@@ -93,7 +96,7 @@
             <hr>
             <table class="ml-5">
                 <tr>
-                    <th class="py-3 px-5">User / Admin</th>
+                    <th class="py-3 px-5">User / Admin / superAdmin</th>
                     <th class="py-3 px-5">Passwords</th>
                 </tr>
                 <tr>
@@ -102,6 +105,10 @@
                 </tr>
                 <tr>
                     <td>test@admin.com</td>
+                    <td>test123</td>
+                </tr>
+                <tr>
+                    <td>test@superadmin.com</td>
                     <td>test123</td>
                 </tr>
             </table>
